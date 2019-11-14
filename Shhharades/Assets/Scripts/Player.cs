@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     private Rigidbody body;
     private Vector2 inputVector;
 
+    [SerializeField] Transform canvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,15 @@ public class Player : MonoBehaviour
     void Update()
     {
         inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            if (canvas.gameObject.activeInHierarchy == false)
+            {
+                canvas.gameObject.SetActive(true);
+                Time.timeScale = 0f;
+            }
+        }
     }
 
     private void FixedUpdate()

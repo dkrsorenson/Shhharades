@@ -42,8 +42,8 @@ public class ChangeScene : MonoBehaviour
     
     public void ResumeGame()
     {
-        GameObject.Find("PauseMenu").SetActive(false);
         Time.timeScale = 1f;
+        GameObject.Find("PauseMenu").SetActive(false);
     }
 
     public void GoToInstructions()
