@@ -59,8 +59,8 @@ public class Player : MonoBehaviour
             //body.AddForce(transform.forward * loudness);
             var velocity = transform.forward * (loudness / 10);
             var position = body.position + velocity * Time.fixedDeltaTime;
-            body.MovePosition(position);
-
+            // body.MovePosition(position);
+            transform.position = position;
             Debug.Log("Velocity: " + body.velocity);
         }
 
