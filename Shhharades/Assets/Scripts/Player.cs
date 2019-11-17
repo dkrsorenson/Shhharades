@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -8,9 +9,14 @@ public class Player : MonoBehaviour
     //fields
     [SerializeField] float sensitivity;
     [SerializeField] float loudness;
+    [SerializeField] float rotationSpeed = 1.0f;
+    [SerializeField] float movementSpeed = 2.0f;
+    [SerializeField] float minLoudness = 2.0f;
+    [SerializeField] float maxLoudness = 15.0f;
     private AudioSource audioSource;
     private Rigidbody body;
     private Vector2 inputVector;
+    private Slider loudnessMeter;
 
     [SerializeField] Transform canvas;
 
@@ -19,6 +25,7 @@ public class Player : MonoBehaviour
     {
         body = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        loudnessMeter = GameObject.FindGameObjectWithTag("LoudnessMeter").GetComponent<Slider>();
         audioSource.clip = Microphone.Start(null, true, 10, 44100);
         audioSource.loop = true;
         //audioSource.mute = true;
@@ -51,21 +58,28 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Get loudness
         audioSource.velocityUpdateMode = AudioVelocityUpdateMode.Fixed;
         loudness = GetAverageVolume() * sensitivity;
+
+        // Cap loudness at max
+        if (loudness > maxLoudness) loudness = maxLoudness;
         Debug.Log("Loudness: " + loudness);
-        if (loudness > 5)
+
+        // Display loudness on meter
+        loudnessMeter.value = loudness / maxLoudness;
+
+        // Move character if above the minimum loudness
+        if (loudness > minLoudness)
         {
-            //body.AddForce(transform.forward * loudness);
-            var velocity = transform.forward * (loudness / 10);
+            var velocity = transform.forward * (loudness / maxLoudness) * movementSpeed;
             var position = body.position + velocity * Time.fixedDeltaTime;
-            // body.MovePosition(position);
-            transform.position = position;
-            Debug.Log("Velocity: " + body.velocity);
+            Debug.Log("Velocity: " + velocity);
+            body.MovePosition(position);
         }
 
-        //transform.Rotate(0, 0.5f * inputVector.x, 0);
-        var rotation = new Vector3(0f, inputVector.x, 0f) * 0.5f;
+        // Rotate player
+        var rotation = new Vector3(0f, inputVector.x, 0f) * rotationSpeed;
         Quaternion deltaRotation = Quaternion.Euler(rotation);
         body.MoveRotation(body.rotation * deltaRotation);
     }
