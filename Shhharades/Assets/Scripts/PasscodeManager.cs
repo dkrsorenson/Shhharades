@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PasscodeManager : MonoBehaviour
+public class RiddleManager : MonoBehaviour
 {
     private string passcode;
     private string userPasscode;
@@ -25,7 +25,6 @@ public class PasscodeManager : MonoBehaviour
     public void AddToUserPasscode(int num)
     {
         userPasscode += num.ToString();
-        Debug.Log(userPasscode);
     }
 
     //generate new random passcode

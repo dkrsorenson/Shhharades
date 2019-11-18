@@ -8,7 +8,6 @@ public class Raycast : MonoBehaviour
     private RaycastHit view;
     public float rayLength;
     private bool isNumberVisible;
-    //private GameObject player;
     private bool added;
     [SerializeField] TextMeshProUGUI txt;
 
@@ -18,7 +17,6 @@ public class Raycast : MonoBehaviour
         rayLength = 1;
         isNumberVisible = false;
         added = false;
-        //player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -59,7 +57,7 @@ public class Raycast : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.E) && !added)
         {
             //add to passcode
-            GameObject.Find("RiddleManager").GetComponent<RiddleManager>().AddToUserPasscode(num);
+            GameObject.Find("PasscodeManager").GetComponent<PasscodeManager>().AddToUserPasscode(num);
             added = true;
         }
     }
