@@ -9,6 +9,7 @@ TagManager:
   - TV
   - Table
   - Lamp
+  - Fireplace
   layers:
   - Default
   - TransparentFX
