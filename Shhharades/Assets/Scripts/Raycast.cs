@@ -59,7 +59,7 @@ public class Raycast : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.E) && !added)
         {
             //add to passcode
-            GameObject.Find("RiddleManager").GetComponent<RiddleManager>().addToPasscode(num);
+            GameObject.Find("RiddleManager").GetComponent<RiddleManager>().AddToUserPasscode(num);
             added = true;
         }
     }

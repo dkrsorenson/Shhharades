@@ -5,11 +5,15 @@ using UnityEngine;
 public class RiddleManager : MonoBehaviour
 {
     private string passcode;
+    private string userPasscode;
+    private int passcodeLength;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        passcodeLength = 6;
+        passcode = GetRandomPasscode();
+        userPasscode = "";
     }
 
     // Update is called once per frame
@@ -18,8 +22,26 @@ public class RiddleManager : MonoBehaviour
         
     }
 
-    public void addToPasscode(int num)
+    public void AddToUserPasscode(int num)
     {
-        passcode += num.ToString();
+        userPasscode += num.ToString();
+    }
+
+    //generate new random passcode
+    private string GetRandomPasscode()
+    {
+        string pass = "";
+        int num;
+
+        for(int i = 0; i<passcodeLength; i++)
+        {
+            do
+            {
+                num = Random.Range(0, 10);
+            } while (pass.Contains(num.ToString()));
+            pass += num.ToString();
+        }
+
+        return pass;
     }
 }
