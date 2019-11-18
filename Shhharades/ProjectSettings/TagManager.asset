@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - LoudnessMeter
+  - Tree
+  - TV
+  - Table
+  - Lamp
   layers:
   - Default
   - TransparentFX

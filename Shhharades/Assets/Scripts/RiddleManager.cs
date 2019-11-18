@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PasscodeManager : MonoBehaviour
+public class RiddleManager : MonoBehaviour
 {
+    private string passcode;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,10 @@ public class PasscodeManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void addToPasscode(int num)
+    {
+        passcode += num.ToString();
     }
 }

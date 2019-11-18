@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
 
         // Cap loudness at max
         if (loudness > maxLoudness) loudness = maxLoudness;
-        Debug.Log("Loudness: " + loudness);
+        //Debug.Log("Loudness: " + loudness);
 
         // Display loudness on meter
         loudnessMeter.value = loudness / maxLoudness;
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
         {
             var velocity = transform.forward * (loudness / maxLoudness) * movementSpeed;
             var position = body.position + velocity * Time.fixedDeltaTime;
-            Debug.Log("Velocity: " + velocity);
+            //Debug.Log("Velocity: " + velocity);
             body.MovePosition(position);
         }
 
