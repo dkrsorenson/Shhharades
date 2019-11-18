@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RiddleManager : MonoBehaviour
+public class PasscodeManager : MonoBehaviour
 {
     private string passcode;
     private string userPasscode;
@@ -19,12 +19,13 @@ public class RiddleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void AddToUserPasscode(int num)
     {
         userPasscode += num.ToString();
+        //Debug.Log(userPasscode);
     }
 
     //generate new random passcode
@@ -33,7 +34,7 @@ public class RiddleManager : MonoBehaviour
         string pass = "";
         int num;
 
-        for(int i = 0; i<passcodeLength; i++)
+        for (int i = 0; i < passcodeLength; i++)
         {
             do
             {

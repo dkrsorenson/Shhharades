@@ -1106,7 +1106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.2, y: -40}
+  m_AnchoredPosition: {x: 2.2, y: -25}
   m_SizeDelta: {x: 226.9, y: 83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &732906287
@@ -1127,7 +1127,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use your voice to move! The louder you are, the farther you move.
+  m_text: 'Use your voice to move. The louder you are, the farther you move, but don''t
+    wake up the parents!
+
+
+    When you get close to an object, a number will be displayed which indicates the
+    page number to find the next clue and if correct, will be needed for the final
+    passcode.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1155,8 +1161,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1172,7 +1178,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 24
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1193,15 +1199,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 16.347393, z: -0.45604318, w: 38.460743}
+  m_margin: {x: -76.38926, y: 16.347393, z: -74.662704, w: -30.289604}
   m_textInfo:
     textComponent: {fileID: 732906287}
-    characterCount: 65
+    characterCount: 266
     spriteCount: 0
-    spaceCount: 12
-    wordCount: 13
+    spaceCount: 51
+    wordCount: 51
     linkCount: 0
-    lineCount: 3
+    lineCount: 6
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1484,7 +1490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -26, y: 54}
+  m_AnchoredPosition: {x: -71, y: 58}
   m_SizeDelta: {x: 226.9, y: 2.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &943254306
@@ -1571,7 +1577,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -20.402855}
+  m_margin: {x: 0, y: 0, z: 142.95708, w: -20.402855}
   m_textInfo:
     textComponent: {fileID: 943254306}
     characterCount: 9
@@ -2332,7 +2338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68, y: 22}
+  m_AnchoredPosition: {x: 68, y: 37}
   m_SizeDelta: {x: 226.9, y: 83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1705023812
@@ -2354,6 +2360,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Rotate left/right: A/D
+
+    Add to passcode: E when displayed
 
     Pause: ESC'
   m_isRightToLeft: 0
@@ -2421,15 +2429,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 50.14308, w: 38.460743}
+  m_margin: {x: -45.833572, y: 0, z: -13.150919, w: 16.635256}
   m_textInfo:
     textComponent: {fileID: 1705023812}
-    characterCount: 33
+    characterCount: 67
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 7
+    spaceCount: 10
+    wordCount: 13
     linkCount: 0
-    lineCount: 2
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
