@@ -19,13 +19,10 @@ public class Raycast : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        //Debug.DrawRay(player.transform.position,player.transform.forward * radius, Color.red, 0.5f);
-        
+    {        
         //if within range
         if(Physics.Raycast(transform.position, transform.forward, out view, rayLength))
         {
-            //Debug.Log(view.collider.tag);
             switch(view.collider.tag)
             {
                 case "Tree": DisplayNumber(0); break;

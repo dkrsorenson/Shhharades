@@ -32,7 +32,6 @@ public class PasscodeManager : MonoBehaviour
             userPasscode += num.ToString();
             passDisplay.text = userPasscode;
         }
-        Debug.Log(userPasscode);
     }
 
     //generate new random passcode
