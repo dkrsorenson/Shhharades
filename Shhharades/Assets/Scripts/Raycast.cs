@@ -8,7 +8,6 @@ public class Raycast : MonoBehaviour
     private RaycastHit view;
     public float rayLength;
     private bool isNumberVisible;
-    private bool added;
     [SerializeField] TextMeshProUGUI txt;
 
     // Start is called before the first frame update
@@ -16,7 +15,6 @@ public class Raycast : MonoBehaviour
     {
         rayLength = 1;
         isNumberVisible = false;
-        added = false;
     }
 
     // Update is called once per frame
@@ -45,7 +43,6 @@ public class Raycast : MonoBehaviour
         else
         {
             txt.text = "";
-            added = false;
         }
     }
 
@@ -54,11 +51,10 @@ public class Raycast : MonoBehaviour
         //display number
         txt.text = num.ToString();
 
-        if(Input.GetKeyUp(KeyCode.E) && !added)
+        if(Input.GetKeyUp(KeyCode.E))
         {
             //add to passcode
             GameObject.Find("PasscodeManager").GetComponent<PasscodeManager>().AddToUserPasscode(num);
-            added = true;
         }
     }
 }

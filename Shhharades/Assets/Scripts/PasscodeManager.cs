@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PasscodeManager : MonoBehaviour
 {
     private string passcode;
     private string userPasscode;
     private int passcodeLength;
+    [SerializeField] TextMeshProUGUI passDisplay;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +16,7 @@ public class PasscodeManager : MonoBehaviour
         passcodeLength = 6;
         passcode = GetRandomPasscode();
         userPasscode = "";
+        passDisplay.text = userPasscode;
     }
 
     // Update is called once per frame
@@ -24,8 +27,12 @@ public class PasscodeManager : MonoBehaviour
 
     public void AddToUserPasscode(int num)
     {
-        userPasscode += num.ToString();
-        //Debug.Log(userPasscode);
+        if (userPasscode.Length<6 && !(userPasscode.Contains(num.ToString())))
+        {
+            userPasscode += num.ToString();
+            passDisplay.text = userPasscode;
+        }
+        Debug.Log(userPasscode);
     }
 
     //generate new random passcode
