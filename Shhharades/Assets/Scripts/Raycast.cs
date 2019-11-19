@@ -9,8 +9,7 @@ public class Raycast : MonoBehaviour
     public float rayLength;
     private bool isNumberVisible;
     [SerializeField] TextMeshProUGUI txt;
-    int passIndex;
-    int nextPassNum;
+    Dictionary<string, int> nums;
 
     // Start is called before the first frame update
     void Start()
@@ -27,16 +26,16 @@ public class Raycast : MonoBehaviour
         {
             switch(view.collider.tag)
             {
-                case "Tree": DisplayNumber(0); break;
-                case "Couch": DisplayNumber(1); break;
-                case "Mirror": DisplayNumber(2); break;
-                case "CandyCane": DisplayNumber(3); break;
-                case "Fireplace": DisplayNumber(4); break;
-                case "TV": DisplayNumber(5); break;
-                case "Table": DisplayNumber(6); break;
-                case "Wreath": DisplayNumber(7); break;
-                case "Lamp": DisplayNumber(8); break;
-                case "Clock": DisplayNumber(9); break;
+                case "Tree": DisplayNumber(nums["Tree"]); break;
+                case "Couch": DisplayNumber(nums["Couch"]); break;
+                case "Mirror": DisplayNumber(nums["Mirror"]); break;
+                case "CandyCane": DisplayNumber(nums["CandyCane"]); break;
+                case "Fireplace": DisplayNumber(nums["Fireplace"]); break;
+                case "TV": DisplayNumber(nums["TV"]); break;
+                case "Table": DisplayNumber(nums["Table"]); break;
+                case "Wreath": DisplayNumber(nums["Wreath"]); break;
+                case "Lamp": DisplayNumber(nums["Lamp"]); break;
+                case "Clock": DisplayNumber(nums["Clock"]); break;
             }
         }
         else
@@ -55,5 +54,10 @@ public class Raycast : MonoBehaviour
             //add to passcode
             GameObject.Find("PasscodeManager").GetComponent<PasscodeManager>().AddToUserPasscode(num);
         }
+    }
+
+    public void GetNums()
+    {
+        nums = GameObject.Find("PasscodeManager").GetComponent<PasscodeManager>().GetDisplayNums();
     }
 }
