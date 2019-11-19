@@ -51,4 +51,11 @@ public class PasscodeManager : MonoBehaviour
 
         return pass;
     }
+
+    public int GetNextNum(int index)
+    {
+        int passNum;
+        int.TryParse(passcode.Substring(index, 1), out passNum);
+        return passNum;
+    }
 }

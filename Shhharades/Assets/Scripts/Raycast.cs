@@ -9,6 +9,8 @@ public class Raycast : MonoBehaviour
     public float rayLength;
     private bool isNumberVisible;
     [SerializeField] TextMeshProUGUI txt;
+    int passIndex;
+    int nextPassNum;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +18,7 @@ public class Raycast : MonoBehaviour
         rayLength = 1;
         isNumberVisible = false;
     }
-
+    
     // Update is called once per frame
     void Update()
     {        
