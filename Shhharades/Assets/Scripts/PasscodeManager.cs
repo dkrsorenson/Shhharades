@@ -32,7 +32,10 @@ public class PasscodeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            RemoveNumberFromPasscode();
+        }
     }
 
     public void AddToUserPasscode(int num)
@@ -42,6 +45,17 @@ public class PasscodeManager : MonoBehaviour
             userPasscode += num.ToString();
             passDisplay.text = userPasscode;
         }
+    }
+
+    //removes the last digit from the user's passcode
+    public void RemoveNumberFromPasscode()
+    {
+        if(userPasscode.Length>1) //remove one digit
+        {
+            userPasscode = userPasscode.Substring(0, userPasscode.Length - 1);
+            passDisplay.text = userPasscode;
+        }
+        //otherwise do nothing
     }
 
     //generate new random passcode
