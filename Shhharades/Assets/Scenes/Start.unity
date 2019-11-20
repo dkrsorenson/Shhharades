@@ -179,8 +179,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0.47058824, b: 0.12156863, a: 1}
-    m_HighlightedColor: {r: 0.81960785, g: 0.7019608, b: 0.7490196, a: 1}
+    m_NormalColor: {r: 0.85882354, g: 0.023529412, b: 0.023529412, a: 1}
+    m_HighlightedColor: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 1}
     m_PressedColor: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -909,8 +909,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1050,7 +1050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.85882354, g: 0.023529412, b: 0.023529412, a: 1}
+  m_Color: {r: 0, g: 0.47058824, b: 0.12156863, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1719,7 +1719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.099015, y: 0.56461}
+  m_AnchoredPosition: {x: -0.09899902, y: 0.56463623}
   m_SizeDelta: {x: 818.2, y: 328.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1085523023
@@ -2249,7 +2249,7 @@ RectTransform:
   m_GameObject: {fileID: 1539209184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.213, z: 1}
+  m_LocalScale: {x: 1, y: 1.2888125, z: 1}
   m_Children: []
   m_Father: {fileID: 235834389}
   m_RootOrder: 0
@@ -2412,7 +2412,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68, y: 37}
+  m_AnchoredPosition: {x: 68, y: 43}
   m_SizeDelta: {x: 226.9, y: 83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1705023812
@@ -2436,6 +2436,8 @@ MonoBehaviour:
   m_text: 'Rotate left/right: A/D
 
     Add to passcode: E when displayed
+
+    Remove last digit from passcode: R
 
     Pause: ESC'
   m_isRightToLeft: 0
@@ -2465,8 +2467,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2482,7 +2484,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 92
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2506,12 +2508,12 @@ MonoBehaviour:
   m_margin: {x: -45.833572, y: 0, z: -13.150919, w: 16.635256}
   m_textInfo:
     textComponent: {fileID: 1705023812}
-    characterCount: 67
+    characterCount: 102
     spriteCount: 0
-    spaceCount: 10
-    wordCount: 13
+    spaceCount: 16
+    wordCount: 19
     linkCount: 0
-    lineCount: 3
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
