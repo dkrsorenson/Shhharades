@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] float movementSpeed = 2.0f;
     [SerializeField] float minLoudness = 2.0f;
     [SerializeField] float maxLoudness = 15.0f;
+    [SerializeField] GameObject sceneManager;
     private AudioSource audioSource;
     private Rigidbody body;
     private Vector2 inputVector;
@@ -76,6 +78,11 @@ public class Player : MonoBehaviour
             var position = body.position + velocity * Time.fixedDeltaTime;
             //Debug.Log("Velocity: " + velocity);
             body.MovePosition(position);
+        }
+
+        if(loudness>12.0f)
+        {
+            sceneManager.GetComponent<UIManager>().TakeTimeOff(60);
         }
 
         // Rotate player
