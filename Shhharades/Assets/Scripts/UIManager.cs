@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
 
     private void ToGameOver()
     {
-        SceneManager.LoadScene("GameOverLose");
+        SceneManager.LoadScene("GameOver");
     }
 
     public IEnumerator StartCountdown(int countdownValue = 600)
