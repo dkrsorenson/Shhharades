@@ -10,6 +10,7 @@ TagManager:
   - Table
   - Lamp
   - Fireplace
+  - LightsOn
   layers:
   - Default
   - TransparentFX

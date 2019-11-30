@@ -8,6 +8,12 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timer;
     [SerializeField] TextMeshProUGUI warningText;
+    [SerializeField] Transform lightFloor;
+    [SerializeField] Transform lightCeiling;
+    [SerializeField] Transform lightFront;
+    [SerializeField] Transform lightBack;
+    [SerializeField] Transform lightLeft;
+    [SerializeField] Transform lightRight;
     public int totalTime;
     private int minutes;
     private int seconds;
@@ -47,8 +53,24 @@ public class UIManager : MonoBehaviour
 
         if(totalTime<=0)
         {
-            SceneManager.LoadScene("GameOver");
+            float delayTime = 3f; //three seconds
+            
+            //turn lights on
+            lightFloor.gameObject.SetActive(true);
+            lightCeiling.gameObject.SetActive(true);
+            lightFront.gameObject.SetActive(true);
+            lightBack.gameObject.SetActive(true);
+            lightLeft.gameObject.SetActive(true);
+            lightRight.gameObject.SetActive(true);
+
+            //transition to game over screen
+            Invoke("ToGameOver", delayTime);
         }
+    }
+
+    private void ToGameOver()
+    {
+        SceneManager.LoadScene("GameOverLose");
     }
 
     public IEnumerator StartCountdown(int countdownValue = 600)
