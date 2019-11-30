@@ -11,6 +11,7 @@ TagManager:
   - Lamp
   - Fireplace
   - LightsOn
+  - Door
   layers:
   - Default
   - TransparentFX

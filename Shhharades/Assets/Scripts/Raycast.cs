@@ -9,6 +9,7 @@ public class Raycast : MonoBehaviour
     public float rayLength;
     private bool isNumberVisible;
     [SerializeField] TextMeshProUGUI txt;
+    [SerializeField] TextMeshProUGUI interactKeyText;
     Dictionary<string, int> nums;
 
     // Start is called before the first frame update
@@ -37,10 +38,16 @@ public class Raycast : MonoBehaviour
                 case "Lamp": DisplayNumber(nums["Lamp"]); break;
                 case "Clock": DisplayNumber(nums["Clock"]); break;
             }
+
+            if(view.collider.tag == "Door")
+            {
+                interactKeyText.enabled = true;
+            }
         }
         else
         {
             txt.text = "";
+            interactKeyText.enabled = false;
         }
     }
 
@@ -48,6 +55,7 @@ public class Raycast : MonoBehaviour
     {
         //display number
         txt.text = num.ToString();
+        interactKeyText.enabled = true;
 
         if(Input.GetKeyUp(KeyCode.E))
         {
