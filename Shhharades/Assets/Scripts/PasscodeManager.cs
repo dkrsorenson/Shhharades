@@ -13,6 +13,7 @@ public class PasscodeManager : MonoBehaviour
     Dictionary<string, int> displayNums;
     Dictionary<int, string> objectNums;
     Dictionary<int, bool> inPasscode;
+    [SerializeField] TextMeshProUGUI passcodeWarningText;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class PasscodeManager : MonoBehaviour
         passcodeLength = 6;
         passcode = GetRandomPasscode();
         userPasscode = passcode.Substring(0,1);
-        //passDisplay.text = userPasscode;
+        userPasscode = passcode;
         displayNums = new Dictionary<string, int>();
         objectNums = new Dictionary<int, string>();
         inPasscode = new Dictionary<int, bool>();
@@ -30,6 +31,7 @@ public class PasscodeManager : MonoBehaviour
         GameObject.Find("Player").GetComponent<Raycast>().GetNums();
         passcodeDisplay = GameObject.Find("Passcode");
         DisplayPasscode();
+        passcodeWarningText.enabled = false;
     }
 
     // Update is called once per frame
@@ -167,5 +169,25 @@ public class PasscodeManager : MonoBehaviour
             if (i < passcode.Length) displayTexts[i].text = passcode[i].ToString() ?? ' '.ToString();
             else displayTexts[i].text = " ";
         }
+    }
+
+    public bool IsPasscodeCorrect()
+    {
+        // Check if the passcode is correct, too short, or incorrect
+        if (userPasscode.Length < passcode.Length) passcodeWarningText.text = "Passcode is too short!";
+        else if (userPasscode == passcode) return true;
+        else passcodeWarningText.text = "Incorrect passcode!";
+
+        // Print the warning message and return false
+        StartCoroutine(ShowPasscodeWarningText());
+
+        return false;
+    }
+
+    IEnumerator ShowPasscodeWarningText()
+    {
+        passcodeWarningText.enabled = true; 
+        yield return new WaitForSeconds(3);
+        passcodeWarningText.enabled = false;
     }
 }

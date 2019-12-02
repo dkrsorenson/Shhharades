@@ -44,38 +44,38 @@ public class DoorController : MonoBehaviour
 
     private void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.E) && playerInZone)
         {
             doorOpened = !doorOpened;           //The toggle function of door to open/close
+            var isPasscodeCorrect = GameObject.Find("PasscodeManager").GetComponent<PasscodeManager>().IsPasscodeCorrect();
 
-            if (doorState == DoorState.Closed && !doorAnim.isPlaying)
+            // Open the door if the passcode is correct, play the jammed door animation if it is not
+            if (isPasscodeCorrect)
             {
-                doorAnim.Play("Door_Open");
-                doorState = DoorState.Opened;
-            }
+                if (doorState == DoorState.Closed && !doorAnim.isPlaying)
+                {
+                    doorAnim.Play("Door_Open");
+                    doorState = DoorState.Opened;
+                }
 
-            if (doorState == DoorState.Closed && !doorAnim.isPlaying)
-            {
-                doorAnim.Play("Door_Open");
-                doorState = DoorState.Opened;
+                if (doorState == DoorState.Opened && !doorAnim.isPlaying)
+                {
+                    doorAnim.Play("Door_Close");
+                    doorState = DoorState.Closed;
+                }
             }
-
-            if (doorState == DoorState.Opened && !doorAnim.isPlaying)
+            else
             {
-                doorAnim.Play("Door_Close");
-                doorState = DoorState.Closed;
-            }
-
-            if (doorState == DoorState.Jammed)
-            {
-                doorAnim.Play("Door_Jam");
-                doorState = DoorState.Jammed;
-            }
-            else if (doorState == DoorState.Jammed && !doorAnim.isPlaying)
-            {
-                doorAnim.Play("Door_Open");
-                doorState = DoorState.Opened;
+                if (doorState == DoorState.Jammed)
+                {
+                    doorAnim.Play("Door_Jam");
+                    doorState = DoorState.Jammed;
+                }
+                else if (doorState == DoorState.Jammed && !doorAnim.isPlaying)
+                {
+                    doorAnim.Play("Door_Open");
+                    doorState = DoorState.Opened;
+                }
             }
         }
     }
