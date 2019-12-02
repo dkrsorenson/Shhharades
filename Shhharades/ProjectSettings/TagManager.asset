@@ -17,6 +17,7 @@ TagManager:
   - Clock
   - Mirror
   - Couch
+  - GameWonTrigger
   layers:
   - Default
   - TransparentFX

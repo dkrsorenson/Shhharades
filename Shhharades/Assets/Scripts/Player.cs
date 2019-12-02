@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -102,5 +103,13 @@ public class Player : MonoBehaviour
         }
 
         return a / 256;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "GameWonTrigger")
+        {
+            SceneManager.LoadScene("GameWon");
+        }
     }
 }
