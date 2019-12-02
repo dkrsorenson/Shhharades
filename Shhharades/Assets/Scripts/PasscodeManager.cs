@@ -21,7 +21,6 @@ public class PasscodeManager : MonoBehaviour
         passcodeLength = 6;
         passcode = GetRandomPasscode();
         userPasscode = passcode.Substring(0,1);
-        userPasscode = passcode;
         displayNums = new Dictionary<string, int>();
         objectNums = new Dictionary<int, string>();
         inPasscode = new Dictionary<int, bool>();
