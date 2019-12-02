@@ -8,7 +8,8 @@ public class PasscodeManager : MonoBehaviour
     private string passcode;
     private string userPasscode;
     private int passcodeLength;
-    [SerializeField] TextMeshProUGUI passDisplay;
+    //[SerializeField] TextMeshProUGUI passDisplay;
+    GameObject passcodeDisplay;
     Dictionary<string, int> displayNums;
     Dictionary<int, string> objectNums;
     Dictionary<int, bool> inPasscode;
@@ -19,7 +20,7 @@ public class PasscodeManager : MonoBehaviour
         passcodeLength = 6;
         passcode = GetRandomPasscode();
         userPasscode = passcode.Substring(0,1);
-        passDisplay.text = userPasscode;
+        //passDisplay.text = userPasscode;
         displayNums = new Dictionary<string, int>();
         objectNums = new Dictionary<int, string>();
         inPasscode = new Dictionary<int, bool>();
@@ -27,6 +28,8 @@ public class PasscodeManager : MonoBehaviour
         GenerateObjectNums(); //fills dictionary with object nums
         GenerateDisplayNums(); //gets each object's number to display (i.e. page number for next object to find)
         GameObject.Find("Player").GetComponent<Raycast>().GetNums();
+        passcodeDisplay = GameObject.Find("Passcode");
+        DisplayPasscode();
     }
 
     // Update is called once per frame
@@ -43,17 +46,17 @@ public class PasscodeManager : MonoBehaviour
         if (userPasscode.Length<6 && !(userPasscode.Contains(num.ToString())))
         {
             userPasscode += num.ToString();
-            passDisplay.text = userPasscode;
+            DisplayPasscode();
         }
     }
 
     //removes the last digit from the user's passcode
     public void RemoveNumberFromPasscode()
     {
-        if(userPasscode.Length>1) //remove one digit
+        if(userPasscode.Length > 1) //remove one digit
         {
             userPasscode = userPasscode.Substring(0, userPasscode.Length - 1);
-            passDisplay.text = userPasscode;
+            DisplayPasscode();
         }
         //otherwise do nothing
     }
@@ -148,5 +151,21 @@ public class PasscodeManager : MonoBehaviour
         inPasscode.Add(7, false);
         inPasscode.Add(8, false);
         inPasscode.Add(9, false);
+    }
+
+    private void DisplayPasscode()
+    {
+        // Get the text boxes to display the numbers in
+        var displayTexts = passcodeDisplay.GetComponentsInChildren<TextMeshProUGUI>();
+
+        // Get the passcode
+        var passcode = userPasscode.ToCharArray();
+
+        // Display the passcode
+        for (int i = 0; i < 6; i++)
+        {
+            if (i < passcode.Length) displayTexts[i].text = passcode[i].ToString() ?? ' '.ToString();
+            else displayTexts[i].text = " ";
+        }
     }
 }

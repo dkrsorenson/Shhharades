@@ -12,6 +12,11 @@ TagManager:
   - Fireplace
   - LightsOn
   - Door
+  - CandyCane
+  - Wreath
+  - Clock
+  - Mirror
+  - Couch
   layers:
   - Default
   - TransparentFX
