@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
 
         if (loudness > 10.0f)
         {
-            sceneManager.GetComponent<UIManager>().TakeTimeOff(30);
+            sceneManager.GetComponent<UIManager>().TakeTimeOff(15);
         }
 
         // Cap loudness at max
