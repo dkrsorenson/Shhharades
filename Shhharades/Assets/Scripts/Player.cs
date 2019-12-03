@@ -65,6 +65,11 @@ public class Player : MonoBehaviour
         audioSource.velocityUpdateMode = AudioVelocityUpdateMode.Fixed;
         loudness = GetAverageVolume() * sensitivity;
 
+        if (loudness > 10.0f)
+        {
+            sceneManager.GetComponent<UIManager>().TakeTimeOff(30);
+        }
+
         // Cap loudness at max
         if (loudness > maxLoudness) loudness = maxLoudness;
         //Debug.Log("Loudness: " + loudness);
@@ -79,11 +84,6 @@ public class Player : MonoBehaviour
             var position = body.position + velocity * Time.fixedDeltaTime;
             //Debug.Log("Velocity: " + velocity);
             body.MovePosition(position);
-        }
-
-        if(loudness>12.0f)
-        {
-            sceneManager.GetComponent<UIManager>().TakeTimeOff(60);
         }
 
         // Rotate player

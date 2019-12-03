@@ -56,14 +56,14 @@ public class DoorController : MonoBehaviour
                 {
                     doorAnim.Play("Door_Open");
                     doorState = DoorState.Opened;
-                    GameObject.Find("Aparment_Door").GetComponent<DoorCollider>().DisableCollider();
+                    GameObject.Find("Apartment_Door").GetComponent<DoorCollider>().DisableCollider();
                 }
 
                 if (doorState == DoorState.Opened && !doorAnim.isPlaying)
                 {
                     doorAnim.Play("Door_Close");
                     doorState = DoorState.Closed;
-                    GameObject.Find("Aparment_Door").GetComponent<DoorCollider>().EnableCollider();
+                    GameObject.Find("Apartment_Door").GetComponent<DoorCollider>().EnableCollider();
                 }
             }
             else
