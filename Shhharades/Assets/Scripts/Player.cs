@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         audioSource.velocityUpdateMode = AudioVelocityUpdateMode.Fixed;
         loudness = GetAverageVolume() * sensitivity;
 
-        if (loudness > 10.0f)
+        if (loudness > 20.0f)
         {
             sceneManager.GetComponent<UIManager>().TakeTimeOff(15);
         }
@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
         // Move character if above the minimum loudness
         if (loudness > minLoudness)
         {
-            var velocity = transform.forward * (loudness / maxLoudness) * movementSpeed;
+            var velocity = transform.forward * (loudness / 15) * movementSpeed;
             var position = body.position + velocity * Time.fixedDeltaTime;
             //Debug.Log("Velocity: " + velocity);
             body.MovePosition(position);
@@ -103,6 +103,14 @@ public class Player : MonoBehaviour
         }
 
         return a / 256;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag=="obstacle")
+        {
+            sceneManager.GetComponent<UIManager>().TakeTimeOff(15);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

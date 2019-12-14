@@ -18,6 +18,7 @@ TagManager:
   - Mirror
   - Couch
   - GameWonTrigger
+  - obstacle
   layers:
   - Default
   - TransparentFX
