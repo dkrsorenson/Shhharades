@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         audioSource.velocityUpdateMode = AudioVelocityUpdateMode.Fixed;
         loudness = GetAverageVolume() * sensitivity;
 
-        if (loudness > 18.0f)
+        if (loudness > 20.0f)
         {
             sceneManager.GetComponent<UIManager>().TakeTimeOff(15);
         }
@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.tag=="obstacle")
         {
-            sceneManager.GetComponent<UIManager>().TakeTimeOff(15);
+            sceneManager.GetComponent<UIManager>().TakeTimeOff(30);
         }
     }
 
