@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         audioSource.velocityUpdateMode = AudioVelocityUpdateMode.Fixed;
         loudness = GetAverageVolume() * sensitivity;
 
-        if (loudness > 20.0f)
+        if (loudness > 18.0f)
         {
             sceneManager.GetComponent<UIManager>().TakeTimeOff(15);
         }
