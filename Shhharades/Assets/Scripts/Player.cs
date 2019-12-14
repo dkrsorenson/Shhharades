@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         audioSource.velocityUpdateMode = AudioVelocityUpdateMode.Fixed;
         loudness = GetAverageVolume() * sensitivity;
 
-        if (loudness > 20.0f)
+        if (loudness > 13.0f)
         {
             sceneManager.GetComponent<UIManager>().TakeTimeOff(15);
         }
@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
         // Move character if above the minimum loudness
         if (loudness > minLoudness)
         {
-            var velocity = transform.forward * (loudness / 15) * movementSpeed;
+            var velocity = transform.forward * (loudness / maxLoudness) * movementSpeed;
             var position = body.position + velocity * Time.fixedDeltaTime;
             //Debug.Log("Velocity: " + velocity);
             body.MovePosition(position);
@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
 
     float GetAverageVolume()
     {
-        float[] data = new float[256];
+        float[] data = new float[1024];
         float a = 0;
         audioSource.GetOutputData(data, 0);
         foreach(float d in data)
@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
             a += Mathf.Abs(d);
         }
 
-        return a / 256;
+        return a / 1024;
     }
 
     private void OnCollisionEnter(Collision collision)
